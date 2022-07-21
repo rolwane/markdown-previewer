@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="flex overflow-hidden">
       <textarea
-        className="p-4 pb-[100px] resize-none outline-none h-screen w-1/2 border-r-4"
+        className="p-4 pb-[100px] resize-none outline-none h-screen w-1/2 border-r-4 font-mono"
         spellCheck="false"
         onChange={({ target }) => setCode(target.value)}
         placeholder="Write markdown code..."
