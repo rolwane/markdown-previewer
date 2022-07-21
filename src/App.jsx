@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { marked } from 'marked';
-// import Picker from 'emoji-picker-react';
+import Picker from 'emoji-picker-react';
 
 // imported icons
 import { MdOutlineEmojiEmotions } from 'react-icons/md';
@@ -60,6 +60,7 @@ const buttonIcons = [
 function App() {
   const [savedCode, setSavedCode] = useLocalStorage('code');
   const [code, setCode] = useState('');
+  const [isPickingEmoji, setIsPickingEmoji] = useState(false);
 
   const preview = useRef(null);
   const textarea = useRef(null);
@@ -185,6 +186,18 @@ function App() {
     setCode(array.join(''));
   };
 
+  const handleEmoji = (_event, { emoji }) => {
+    setIsPickingEmoji(false);
+
+    const [array, start] = getSelectedText();
+    array.splice(start, 0, emoji);
+    setCode(array.join(''));
+  };
+
+  const showPicker = () => {
+    setIsPickingEmoji(!isPickingEmoji);
+  };
+
   const methods = [
     handleBold,
     handleItalic,
@@ -198,14 +211,14 @@ function App() {
     handleBlockquote,
     handleUnorderedList,
     handleOrderedList,
-    handleH3,
+    showPicker,
   ];
 
   return (
     <div className="flex overflow-hidden flex-wrap">
 
       <div className="md:w-1/2 h-screen border-r-2 w-full">
-        <div className="bg-slate-50 p-2 flex gap-2 border-[#ddd] border-b-[1px] mb-6 flex-wrap items-center justify-center">
+        <div className="bg-slate-50 p-2 flex gap-2 border-[#ddd] border-b-[1px] mb-6 flex-wrap items-center justify-center relative">
           {buttons.map((button, index) => (
             <Button
               title={button}
@@ -214,6 +227,19 @@ function App() {
               key={button}
             />
           ))}
+
+          {isPickingEmoji && (
+          <Picker
+            pickerStyle={{
+              position: 'absolute',
+              inset: 0,
+              left: '50%',
+              top: 'calc(100% + 10px)',
+              transform: 'translateX(-50%)',
+            }}
+            onEmojiClick={handleEmoji}
+          />
+          )}
         </div>
 
         <textarea
