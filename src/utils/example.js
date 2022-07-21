@@ -12,8 +12,8 @@ const initialExample = `# Heading 1
 
 ## Table
 
-|Head|Head|Head|
-|-----|------|-----|
+| Head | Head | Head |
+|------|------|------|
 | item | item | item |
 | item | item | item |
 | item | item | item |
