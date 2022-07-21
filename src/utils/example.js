@@ -22,6 +22,9 @@ const initialExample = `# Heading 1
 
 > Lorem ipsum dolor si a met
 
+> Lorem ipsum dolor si a met
+>> Lorem ipsum dolor si a met
+
 ## Lists
 
 - item 1
