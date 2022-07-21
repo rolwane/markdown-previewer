@@ -10,40 +10,10 @@ const initialExample = `# Heading 1
 
 ###### Heading 7
 
-
----
-
 ## Table
 
 |Head|Head|Head|
 |-----|------|-----|
-| item | item | item |
-| item | item | item |
-| item | item | item |
-
-## blockquote
-
-> Lorem ipsum dolor si a met
-
-# Heading 1
-
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 7
-
-
----
-
-## Table
-
-|Head|Head|Head|
-|------|------|------|
 | item | item | item |
 | item | item | item |
 | item | item | item |
@@ -69,7 +39,6 @@ const initialExample = `# Heading 1
 ## Paragraph
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut posuere libero. Phasellus ornare nunc eu elit tempor, et sodales ligula consectetur.
-
 `;
 
 export default initialExample;
