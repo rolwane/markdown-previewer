@@ -215,10 +215,11 @@ function App() {
   ];
 
   return (
-    <div className="flex overflow-hidden flex-wrap">
+    <div className="flex flex-wrap w-full overflow-hidden items-start justify-center">
 
-      <div className="md:w-1/2 h-screen border-r-2 w-full">
-        <div className="bg-slate-50 p-2 flex gap-2 border-[#ddd] border-b-[1px] mb-6 flex-wrap items-center justify-center relative">
+      <div className="w-full md:w-1/2 pt-9 border-r-4 overflow-hidden h-screen">
+
+        <div className="flex fixed w-full md:w-1/2 bg-gray-100 left-0 top-0 items-center justify-center border-r-4 p-2">
           {buttons.map((button, index) => (
             <Button
               title={button}
@@ -243,7 +244,7 @@ function App() {
         </div>
 
         <textarea
-          className="p-4 pb-[100px] resize-none outline-none w-full h-full font-mono"
+          className="w-full outline-none font-mono h-full resize-none pt-12 p-5"
           spellCheck="false"
           onChange={({ target }) => setCode(target.value)}
           placeholder="Write markdown code..."
@@ -253,7 +254,7 @@ function App() {
       </div>
 
       <div
-        className="md:w-1/2 w-full p-4 pb-[100px] h-screen markdown-body overflow-y-scroll bg-white border-t-4 md:border-none"
+        className="markdown-body w-full md:w-1/2 p-5 overflow-auto h-screen"
         ref={preview}
       />
 
