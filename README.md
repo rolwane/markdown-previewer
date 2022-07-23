@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Markdown Previewer 👀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto nasceu da necessidade de ter um ambiente simples, prático e seguro para escrever readmes para projetos com um preview o mais próximo possível do resultado final no Github.
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+## Requisitos ⚙️
 
-### `npm start`
+Para rodar esse projeto localmente você precisa ter instalado na sua máquina o NodeJS ou Docker e o git para clonar o repositório.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Rodando o projeto com Docker 🐳
 
-### `npm test`
+1. Clone este repositório: ```git clone https://github.com/rolwane/markdown-previewer```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Na raíz do projeto execute o comando: ```npm run compose:up```
 
-### `npm run build`
+3. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Rodando o projeto sem Docker 🍃
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone este repositório: ```git clone https://github.com/rolwane/markdown-previewer```
 
-### `npm run eject`
+2. Na raiz do projeto, instale as dependências: ```npm install```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Execute a aplicação com o comando: ```npm start```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Features 💡
 
-## Learn More
+- [x] Preview 👀
+- [x] Botoẽs de formatação ✏️
+- [x] Emojis 😍
+- [ ] Atalhos de teclado ⌨️
+- [ ] Imagens e icones de tecnologias prontas para uso 🚀
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  Tecnologias e Bibliotecas 🛠️
 
-### Code Splitting
+As seguintes ferramentas foram usadas na construção do projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [React](https://pt-br.reactjs.org/) 🚀
+- [Tailwind CSS](https://tailwindcss.com/) ✏️
+- [Marked](https://marked.js.org/) 🪄
+- [Emoji Picker](https://github.com/ealush/emoji-picker-react) 😍
+- [React Icons](https://react-icons.github.io/react-icons/) 🔥
 
-### Analyzing the Bundle Size
+<br/># Markdown Previewer 👀
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Esse projeto nasceu da necessidade de ter um ambiente simples, prático e seguro para escrever readmes para projetos com um preview o mais próximo possível do resultado final no Github.
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Requisitos ⚙️
 
-### Advanced Configuration
+Para rodar esse projeto localmente você precisa ter instalado na sua máquina o NodeJS ou Docker e o git para clonar o repositório.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br/>
 
-### Deployment
+## Rodando o projeto com Docker 🐳
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Clone este repositório: ```git clone https://github.com/rolwane/markdown-previewer```
 
-### `npm run build` fails to minify
+2. Na raíz do projeto execute o comando: ```npm run compose:up```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
+
+<br/>
+
+## Rodando o projeto sem Docker 🍃
+
+1. Clone este repositório: ```git clone https://github.com/rolwane/markdown-previewer```
+
+2. Na raiz do projeto, instale as dependências: ```npm install```
+
+3. Execute a aplicação com o comando: ```npm start```
+
+4. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
+
+<br/>
+
+## Features 💡
+
+- [x] Preview 👀
+- [x] Botoẽs de formatação ✏️
+- [x] Emojis 😍
+- [ ] Atalhos de teclado ⌨️
+- [ ] Imagens e icones de tecnologias prontas para uso 🚀
+
+<br/>
+
+##  Tecnologias e Bibliotecas 🛠️
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://pt-br.reactjs.org/) 🚀
+- [Tailwind CSS](https://tailwindcss.com/) ✏️
+- [Marked](https://marked.js.org/) 🪄
+- [Emoji Picker](https://github.com/ealush/emoji-picker-react) 😍
+- [React Icons](https://react-icons.github.io/react-icons/) 🔥
+
+<br/>
