@@ -1,47 +1,74 @@
-const initialExample = `# Heading 1
+const initialExample = `# Markdown Previewer 👀
 
-## Heading 2
+Esse projeto nasceu da necessidade de ter um ambiente simples, prático e seguro para escrever readmes para projetos com um preview o mais próximo possível do resultado final no Github.
 
-### Heading 3
+<br/>
 
-#### Heading 4
+## Requisitos ⚙️
 
-##### Heading 5
+Para rodar esse projeto localmente você precisa ter instalado na sua máquina o NodeJS ou Docker e o git para clonar o repositório.
 
-###### Heading 7
+<br/>
 
-## Table
+## Rodando o projeto com Docker 🐳
 
-| Head | Head | Head |
-|------|------|------|
-| item | item | item |
-| item | item | item |
-| item | item | item |
+1. Clone este repositório: \`\`\`git clone https://github.com/rolwane/markdown-previewer\`\`\`
 
-## blockquote
+2. Na raíz do projeto execute o comando: \`\`\`npm run compose:up\`\`\`
 
-> Lorem ipsum dolor si a met
+3. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
 
-> Lorem ipsum dolor si a met
->> Lorem ipsum dolor si a met
+<br/>
 
-## Lists
+## Rodando o projeto sem Docker 🍃
 
-- item 1
-- item 2
-- item 3
-    - sub-item 1
-    - sub-item 2
+1. Clone este repositório: \`\`\`git clone https://github.com/rolwane/markdown-previewer\`\`\`
 
-1. item 1
-2. item 2
-3. item 2
-    1. sub-item 1
-    2. sub-item 2
+2. Na raiz do projeto, instale as dependências: \`\`\`npm install\`\`\`
 
-## Paragraph
+3. Execute a aplicação com o comando: \`\`\`npm start\`\`\`
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut posuere libero. Phasellus ornare nunc eu elit tempor, et sodales ligula consectetur.
+4. O servidor inciará na porta: 3000 - acesse <http://localhost:3000>
+
+<br/>
+
+## Features 💡
+
+- [x] Preview 👀
+- [x] Botoẽs de formatação ✏️
+- [x] Emojis 😍
+- [ ] Atalhos de teclado ⌨️
+- [ ] Imagens e icones de tecnologias prontas para uso 🚀
+
+<br/>
+
+##  Tecnologias e Bibliotecas 🛠️
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://pt-br.reactjs.org/) 🚀
+- [Tailwind CSS](https://tailwindcss.com/) ✏️
+- [Marked](https://marked.js.org/) 🪄
+- [Emoji Picker](https://github.com/ealush/emoji-picker-react) 😍
+- [React Icons](https://react-icons.github.io/react-icons/) 🔥
+
+<br/>
+
+## Autor
+**[Rolwane Borges](https://www.linkedin.com/in/rolwane)**
+
+<br/>
+
+## Licença
+
+![license](https://img.shields.io/static/v1?label=license&message=MIT&color=40AEF0)
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
 `;
 
 export default initialExample;
