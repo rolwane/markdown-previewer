@@ -218,7 +218,6 @@ function App() {
     <div className="flex flex-wrap w-full overflow-hidden items-start justify-center">
 
       <div className="w-full md:w-1/2 pt-9 border-r-4 overflow-hidden h-screen">
-
         <div className="flex fixed w-full md:w-1/2 bg-gray-100 left-0 top-0 items-center justify-center border-r-4 p-2">
           {buttons.map((button, index) => (
             <Button
