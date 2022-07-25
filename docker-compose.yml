@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: 'markdown_previewer'
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    command: npm start
