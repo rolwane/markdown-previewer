@@ -218,7 +218,7 @@ function App() {
     <div className="flex flex-wrap w-full overflow-hidden items-start justify-center">
 
       <div className="w-full md:w-1/2 pt-9 border-r-4 overflow-hidden h-screen">
-        <div className="flex fixed w-full md:w-1/2 bg-gray-100 left-0 top-0 items-center justify-center border-r-4 p-2">
+        <div className="flex flex-wrap fixed w-full md:w-1/2 bg-gray-100 left-0 top-0 items-center justify-center border-r-4 p-2">
           {buttons.map((button, index) => (
             <Button
               title={button}
@@ -243,7 +243,7 @@ function App() {
         </div>
 
         <textarea
-          className="w-full outline-none font-mono h-full resize-none pt-12 p-5"
+          className="w-full outline-none font-mono h-full resize-none sm:pt-12 pt-[100px] p-5"
           spellCheck="false"
           onChange={({ target }) => setCode(target.value)}
           placeholder="Write markdown code..."
