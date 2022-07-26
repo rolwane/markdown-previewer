@@ -37,8 +37,30 @@ Para rodar esse projeto localmente você precisa ter instalado na sua máquina o
 - [x] Preview 👀
 - [x] Botoẽs de formatação ✏️
 - [x] Emojis 😍
-- [ ] Atalhos de teclado ⌨️
+- [x] Atalhos de teclado ⌨️
 - [ ] Imagens e icones de tecnologias prontas para uso 🚀
+
+<br/>
+
+## Atalhos 🚀
+
+<br/>
+
+|           Atalho         |                         Ação                         |
+|--------------------------|------------------------------------------------------|
+|\`\`\`Control + b\`\`\`         |  Deixa o texto selecionado negrito                   |
+|\`\`\`Control + i\`\`\`         |  Deixa o texto selecionado italico                   |
+|\`\`\`Control + s\`\`\`         |  Deixa o texto selecionado tachado                   |
+|\`\`\`Control + h + 1\`\`\`     |  Cria um H1 com o texto selecionado                  |
+|\`\`\`Control + h + 2\`\`\`     |  Cria um H2 com o texto selecionado                  |
+|\`\`\`Control + h + 2\`\`\`     |  Cria um H3 com o texto selecionado                  |
+|\`\`\`Control + l\`\`\`         |  Adiciona um link                                    |
+|\`\`\`Control + Shift + t\`\`\` |  Adiciona uma tabela                                 |
+|\`\`\`Control + Shift + c\`\`\` |  Mostra o texto selecionado como um código           |
+|\`\`\`Control + '\`\`\`         |  Mostra o texto selecionado como um bloco de citação |
+|\`\`\`Control + Shift + y\`\`\` |  Adiciona uma lista não ordenada                     |
+|\`\`\`Control + Shift + o\`\`\` |  Adiciona uma lista ordenada                         |
+|\`\`\`Control + e\`\`\`         |  Abre a caixa de emojis                              |
 
 <br/>
 
@@ -63,11 +85,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ![license](https://img.shields.io/static/v1?label=license&message=MIT&color=40AEF0)
 
-
-
-<br/>
-<br/>
-<br/>
 <br/>
 `;
 
