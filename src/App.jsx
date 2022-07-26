@@ -86,6 +86,10 @@ function App() {
     setCode(arrayValue.join(''));
   };
 
+  const handleKeyUp = (event) => {
+    isKeyPressed[event.key.toLowerCase()] = false;
+  };
+
   const handleShortcuts = (event) => {
     isKeyPressed[event.key.toLowerCase()] = true;
 
@@ -258,6 +262,7 @@ function App() {
           spellCheck="false"
           onChange={({ target }) => setCode(target.value)}
           onKeyDown={handleShortcuts}
+          onKeyUp={handleKeyUp}
           placeholder="Write markdown code..."
           value={code}
           ref={textarea}
