@@ -214,6 +214,17 @@ function App() {
     showPicker,
   ];
 
+  useEffect(() => {
+    const inputs = document.querySelectorAll('input[type=checkbox]');
+
+    if (inputs.length > 0) {
+      inputs.forEach((e) => {
+        e.parentNode.style.listStyle = 'none';
+        e.parentNode.parentNode.style.paddingLeft = '0';
+      });
+    }
+  }, [code]);
+
   return (
     <div className="flex flex-wrap w-full overflow-hidden items-start justify-center">
 
