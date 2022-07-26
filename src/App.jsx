@@ -19,43 +19,30 @@ import {
   RiListOrdered,
 } from 'react-icons/ri';
 
-import useLocalStorage from './hooks/useLocalStorage';
+// imported functions
+import {
+  handleBold,
+  handleItalic,
+  handleStrike,
+  handleH1,
+  handleH2,
+  handleH3,
+  handleLink,
+  handleTable,
+  handleCode,
+  handleBlockquote,
+  handleUnorderedList,
+  handleOrderedList,
+  getSelectedText,
+} from './utils/methods';
+
 import example from './utils/example';
+
+// imported custom hooks
+import useLocalStorage from './hooks/useLocalStorage';
 
 // imported components
 import Button from './components/Button';
-
-const buttons = [
-  'bold',
-  'italic',
-  'strikethrough',
-  'H1',
-  'H2',
-  'H3',
-  'link',
-  'table',
-  'code',
-  'blockquote',
-  'unordered list',
-  'ordered list',
-  'emojis',
-];
-
-const buttonIcons = [
-  <RiBold />,
-  <RiItalic />,
-  <RiStrikethrough />,
-  <RiH1 />,
-  <RiH2 />,
-  <RiH3 />,
-  <RiLinksFill />,
-  <RiTable2 />,
-  <RiCodeSSlashLine />,
-  <RiDoubleQuotesR />,
-  <RiListUnordered />,
-  <RiListOrdered />,
-  <MdOutlineEmojiEmotions />,
-];
 
 function App() {
   const [savedCode, setSavedCode] = useLocalStorage('code');
@@ -77,144 +64,7 @@ function App() {
   useEffect(() => {
     preview.current.innerHTML = marked.parse(code);
     setSavedCode(code);
-  }, [code]);
 
-  const getSelectedText = () => {
-    const start = textarea.current.selectionStart;
-    const end = textarea.current.selectionEnd;
-    const selected = code.substring(start, end);
-    const array = code.split('');
-    return [array, start, end, selected];
-  };
-
-  const handleBold = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `**${selected}**`);
-    setCode(array.join(''));
-  };
-
-  const handleItalic = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `*${selected}*`);
-    setCode(array.join(''));
-  };
-
-  const handleStrike = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `~~${selected}~~`);
-    setCode(array.join(''));
-  };
-
-  const handleH1 = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `# ${selected}`);
-    setCode(array.join(''));
-  };
-
-  const handleH2 = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `## ${selected}`);
-    setCode(array.join(''));
-  };
-
-  const handleH3 = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `### ${selected}`);
-    setCode(array.join(''));
-  };
-
-  const handleLink = () => {
-    const [array, start] = getSelectedText();
-    array.splice(start, 0, '[link example](http://example.com)');
-    setCode(array.join(''));
-  };
-
-  const handleTable = () => {
-    const [array, start] = getSelectedText();
-
-    const table = `
-| Heading | Heading |
-|---------|---------|
-| Cell 1  | Cell 1  |
-| Cell 2  | Cell 2  |`;
-
-    array.splice(start, 0, table);
-    setCode(array.join(''));
-  };
-
-  const handleCode = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `\`\`\`${selected}\`\`\``);
-    setCode(array.join(''));
-  };
-
-  const handleBlockquote = () => {
-    const [array, start, end, selected] = getSelectedText();
-    array.splice(start, end - start, `> ${selected}`);
-    setCode(array.join(''));
-  };
-
-  const handleUnorderedList = () => {
-    const [array, start, end, selected] = getSelectedText();
-
-    const list = `
-- item 1
-- item 2
-- item 3`;
-
-    if (selected) {
-      array.splice(start, end - start, `- ${selected}`);
-    } else {
-      array.splice(start, end - start, list);
-    }
-    setCode(array.join(''));
-  };
-
-  const handleOrderedList = () => {
-    const [array, start, end, selected] = getSelectedText();
-
-    const list = `
-1. item 1
-2. item 2
-3. item 3`;
-
-    if (selected) {
-      array.splice(start, end - start, `1. ${selected}`);
-    } else {
-      array.splice(start, end - start, list);
-    }
-    setCode(array.join(''));
-  };
-
-  const handleEmoji = (_event, { emoji }) => {
-    setIsPickingEmoji(false);
-
-    const [array, start] = getSelectedText();
-    array.splice(start, 0, emoji);
-    setCode(array.join(''));
-  };
-
-  const showPicker = () => {
-    setIsPickingEmoji(!isPickingEmoji);
-  };
-
-  const methods = [
-    handleBold,
-    handleItalic,
-    handleStrike,
-    handleH1,
-    handleH2,
-    handleH3,
-    handleLink,
-    handleTable,
-    handleCode,
-    handleBlockquote,
-    handleUnorderedList,
-    handleOrderedList,
-    showPicker,
-  ];
-
-  useEffect(() => {
     const inputs = document.querySelectorAll('input[type=checkbox]');
 
     if (inputs.length > 0) {
@@ -225,31 +75,108 @@ function App() {
     }
   }, [code]);
 
+  const handleEmoji = (_event, emojiObject) => {
+    setIsPickingEmoji(false);
+
+    const { selectionStart, arrayValue } = getSelectedText(textarea.current);
+
+    arrayValue.splice(selectionStart, 0, emojiObject.emoji);
+    setCode(arrayValue.join(''));
+  };
+
   return (
     <div className="flex flex-wrap w-full overflow-hidden items-start justify-center">
 
       <div className="w-full md:w-1/2 pt-9 border-r-4 overflow-hidden h-screen">
         <div className="flex flex-wrap fixed w-full md:w-1/2 bg-gray-100 left-0 top-0 items-center justify-center border-r-4 p-2">
-          {buttons.map((button, index) => (
-            <Button
-              title={button}
-              startIcon={buttonIcons[index]}
-              onClick={methods[index]}
-              key={button}
-            />
-          ))}
+
+          <Button
+            title="bold"
+            startIcon={<RiBold />}
+            onClick={() => setCode(handleBold(textarea.current))}
+          />
+
+          <Button
+            title="italic"
+            startIcon={<RiItalic />}
+            onClick={() => setCode(handleItalic(textarea.current))}
+          />
+
+          <Button
+            title="Strikethrough"
+            startIcon={<RiStrikethrough />}
+            onClick={() => setCode(handleStrike(textarea.current))}
+          />
+
+          <Button
+            title="H1"
+            startIcon={<RiH1 />}
+            onClick={() => setCode(handleH1(textarea.current))}
+          />
+
+          <Button
+            title="H2"
+            startIcon={<RiH2 />}
+            onClick={() => setCode(handleH2(textarea.current))}
+          />
+
+          <Button
+            title="H3"
+            startIcon={<RiH3 />}
+            onClick={() => setCode(handleH3(textarea.current))}
+          />
+
+          <Button
+            title="link"
+            startIcon={<RiLinksFill />}
+            onClick={() => setCode(handleLink(textarea.current))}
+          />
+
+          <Button
+            title="table"
+            startIcon={<RiTable2 />}
+            onClick={() => setCode(handleTable(textarea.current))}
+          />
+
+          <Button
+            title="code"
+            startIcon={<RiCodeSSlashLine />}
+            onClick={() => setCode(handleCode(textarea.current))}
+          />
+
+          <Button
+            title="blockquote"
+            startIcon={<RiDoubleQuotesR />}
+            onClick={() => setCode(handleBlockquote(textarea.current))}
+          />
+
+          <Button
+            title="unordered list"
+            startIcon={<RiListUnordered />}
+            onClick={() => setCode(handleUnorderedList(textarea.current))}
+          />
+
+          <Button
+            title="ordered list"
+            startIcon={<RiListOrdered />}
+            onClick={() => setCode(handleOrderedList(textarea.current))}
+          />
+
+          <Button
+            title="emoji"
+            startIcon={<MdOutlineEmojiEmotions />}
+            onClick={() => setIsPickingEmoji(!isPickingEmoji)}
+          />
 
           {isPickingEmoji && (
-          <Picker
-            pickerStyle={{
-              position: 'absolute',
-              inset: 0,
-              left: '50%',
-              top: 'calc(100% + 10px)',
-              transform: 'translateX(-50%)',
-            }}
-            onEmojiClick={handleEmoji}
-          />
+            <Picker
+              pickerStyle={{
+                position: 'absolute',
+                inset: '110% 50%',
+                transform: 'translate(-50%, 0)',
+              }}
+              onEmojiClick={handleEmoji}
+            />
           )}
         </div>
 
