@@ -52,6 +52,8 @@ function App() {
   const preview = useRef(null);
   const textarea = useRef(null);
 
+  const isKeyPressed = {};
+
   useEffect(() => {
     if (savedCode) {
       setCode(savedCode);
@@ -79,9 +81,79 @@ function App() {
     setIsPickingEmoji(false);
 
     const { selectionStart, arrayValue } = getSelectedText(textarea.current);
-
     arrayValue.splice(selectionStart, 0, emojiObject.emoji);
+
     setCode(arrayValue.join(''));
+  };
+
+  const handleShortcuts = (event) => {
+    isKeyPressed[event.key.toLowerCase()] = true;
+
+    if (isKeyPressed.control && isKeyPressed.b) {
+      event.preventDefault();
+      setCode(handleBold(textarea.current));
+    }
+
+    if (isKeyPressed.control && isKeyPressed.i) {
+      event.preventDefault();
+      setCode(handleItalic(textarea.current));
+    }
+
+    if (isKeyPressed.control && isKeyPressed.s) {
+      event.preventDefault();
+      setCode(handleStrike(textarea.current));
+    }
+
+    if (isKeyPressed.control && isKeyPressed.h) {
+      event.preventDefault();
+
+      if (isKeyPressed[1]) {
+        setCode(handleH1(textarea.current));
+      }
+
+      if (isKeyPressed[2]) {
+        setCode(handleH2(textarea.current));
+      }
+
+      if (isKeyPressed[3]) {
+        setCode(handleH3(textarea.current));
+      }
+    }
+
+    if (isKeyPressed.control && isKeyPressed.l) {
+      event.preventDefault();
+      setCode(handleLink(textarea.current));
+    }
+
+    if (isKeyPressed.control && isKeyPressed.shift) {
+      event.preventDefault();
+
+      if (isKeyPressed.t) {
+        setCode(handleTable(textarea.current));
+      }
+
+      if (isKeyPressed.c) {
+        setCode(handleCode(textarea.current));
+      }
+
+      if (isKeyPressed.y) {
+        setCode(handleUnorderedList(textarea.current));
+      }
+
+      if (isKeyPressed.o) {
+        setCode(handleOrderedList(textarea.current));
+      }
+    }
+
+    if (isKeyPressed.control && isKeyPressed["'"]) {
+      event.preventDefault();
+      setCode(handleBlockquote(textarea.current));
+    }
+
+    if (isKeyPressed.control && isKeyPressed.e) {
+      event.preventDefault();
+      setIsPickingEmoji(!isPickingEmoji);
+    }
   };
 
   return (
@@ -176,6 +248,7 @@ function App() {
                 transform: 'translate(-50%, 0)',
               }}
               onEmojiClick={handleEmoji}
+              disableAutoFocus
             />
           )}
         </div>
@@ -184,6 +257,7 @@ function App() {
           className="w-full outline-none font-mono h-full resize-none sm:pt-12 pt-[100px] p-5"
           spellCheck="false"
           onChange={({ target }) => setCode(target.value)}
+          onKeyDown={handleShortcuts}
           placeholder="Write markdown code..."
           value={code}
           ref={textarea}
